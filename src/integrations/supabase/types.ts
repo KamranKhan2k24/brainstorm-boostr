@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      generated_content: {
+        Row: {
+          audience: string
+          content: Json
+          created_at: string
+          id: string
+          niche: string
+          platform: string
+          style: string
+          user_id: string
+        }
+        Insert: {
+          audience: string
+          content: Json
+          created_at?: string
+          id?: string
+          niche: string
+          platform: string
+          style: string
+          user_id: string
+        }
+        Update: {
+          audience?: string
+          content?: Json
+          created_at?: string
+          id?: string
+          niche?: string
+          platform?: string
+          style?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
