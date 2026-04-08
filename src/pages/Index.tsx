@@ -75,14 +75,14 @@ export default function Index() {
 
       // Save to history if logged in
       if (user) {
-        await supabase.from("generated_content").insert({
+        await supabase.from("generated_content").insert([{
           user_id: user.id,
           niche: formParams.niche,
           platform: formParams.platform,
           style: formParams.style,
           audience: formParams.audience,
-          content: { selectedIdea: idea, materials: data },
-        });
+          content: { selectedIdea: idea, materials: data } as any,
+        }]);
         loadHistory();
       }
     } catch (err: any) {
